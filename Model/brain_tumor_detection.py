@@ -112,15 +112,3 @@ y_train = np.array(y_train)
 model.fit(x_train,y_train,batch_size=32,epochs=10,validation_data=(x_test,y_test),shuffle=False,verbose=1)
 
 model.save("BrainTumorDetection.h5")
-
-from sklearn.ensemble import RandomForestClassifier
-
-rfc = RandomForestClassifier()
-
-print(x_train.shape)
-
-import pandas
-
-dataframe = pandas.DataFrame(x_train)
-
-rfc.fit(x_train,y_train)
