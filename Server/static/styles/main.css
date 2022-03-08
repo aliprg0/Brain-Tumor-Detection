@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    background-color:wheat;
+}
+
+.display_image {
+    width: 500px;
+    height: 500px;
+    border : 1px solid black;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.button {
+    height: 4em;
+    width: 8em;
+    font-size: large;
+}
