@@ -1,26 +1,26 @@
+from http.client import OK
 from flask import Flask,request,render_template,jsonify
 from flask_cors import CORS
-import os
-import numpy as np
+
+from utils import *
+
 
 app = Flask(__name__)
 CORS(app)
-
 
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route("/saveImage", methods=['POST'])
-def predict():
-      #data = request.form.get['myFile']
-     # arr = np.array(data)
-     # print(arr)
+@app.route("/predict", methods=['POST'])
+def predict():     
       
-      data = request.files["myFile"]
-      data.save("pppnggg.png")
-      return jsonify({"Result" : "Good"})
+    data = request.files["myFile"]
+    data.save(data.filename)
+    result = predict_the_pic(data.filename)
+    print(result)
+    return jsonify({"Result" : "Done"})
 
 
 if __name__ == "__main__":

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brain Tumor Detection</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -13,7 +15,7 @@
   <body>
     <form class="form" id="myForm">
       <input type="file" id="fileUpload" name="filee" />
-      <button type="submit">Predict</button>
+      <button type="submit" id="buttonu">Predict</button>
     </form>
     <script src="{{url_for('static', filename='app.js')}}"></script>
   </body>

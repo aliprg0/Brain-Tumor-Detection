@@ -8,7 +8,7 @@ const handleImageUpload = (event) => {
   for (var value of formData.values()) {
     console.log(value)};
 
-  fetch("http://192.168.1.107:5000/saveImage", {
+  fetch("http://192.168.1.107:5000/predict", {
     method: "POST",
     body: formData,
   })
