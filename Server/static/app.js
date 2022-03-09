@@ -1,16 +1,27 @@
-const image_input = document.querySelector("#image_input");
-var uploaded_image = "";
 
+const handleImageUpload = (event) => {
+  const files = event.target.files;
+  const formData = new FormData();
+  formData.append("myFile", files[0]);
+  
+  console.log(formData);
+  for (var value of formData.values()) {
+    console.log(value)};
 
-image_input.addEventListener("change",function() {
-
-    const reader = new FileReader();
-    reader.addEventListener("load",() => {
-        uploaded_image =reader.result;
-
-
-        const el = document.querySelector('div');
-        el.style.backgroundImage = `url(${uploaded_image})`;
+  fetch("http://192.168.1.107:5000/saveImage", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error(error);
     });
-    reader.readAsDataURL(this.files[0]);
-})
+};
+
+
+document.querySelector("#fileUpload").addEventListener("change", (event) => {
+  handleImageUpload(event);
+});

@@ -8,16 +8,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static',filename='styles/main.css') }}"
-    />
+      />
   </head>
   <body>
-    <form class="form" id="myform">
-      <input type="file" id="image_input" accept="image/jpg , image/png" />
-
-      <div class="display_image"></div>
-
-      <button class="button" type="submit">Predict</button>
+    <form class="form" id="myForm">
+      <input type="file" id="fileUpload" name="filee" />
+      <button type="submit">Predict</button>
     </form>
     <script src="{{url_for('static', filename='app.js')}}"></script>
   </body>
