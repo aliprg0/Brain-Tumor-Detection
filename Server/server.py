@@ -16,14 +16,14 @@ def home():
 
 @app.route("/predict", methods=['POST'])
 def predict():     
-   try:   
+   #try:   
     data = request.files["myFile"]
     data.save(f"data/{data.filename}")
     result = predict_the_pic(f"data/{data.filename}",model=__model)
     result = make_result_binary(result=result)
     return jsonify({"Result" : result})
-   except:
-       return jsonify({"Result" : "An Error Occurred"})
+   #except:
+   #    return jsonify({"Result" : "An Error Occurred"})
 
 
 

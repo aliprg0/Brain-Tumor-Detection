@@ -1,4 +1,10 @@
-
+var loadFile = function (event) {
+  var output = document.getElementById("output");
+  output.src = URL.createObjectURL(event.target.files[0]);
+  output.onload = function () {
+    URL.revokeObjectURL(output.src); // free memory
+  };
+};
 const handleImageUpload = (event) => {
   const files = event.target.files;
   const formData = new FormData();
@@ -19,7 +25,8 @@ const handleImageUpload = (event) => {
     });
 };
 
-
-document.querySelector("#fileUpload").addEventListener("change", (event) => {
-  handleImageUpload(event);
-});
+document
+  .querySelector("#fileUpload")
+  .addEventListener("change", (event) => {
+    handleImageUpload(event);
+  });
