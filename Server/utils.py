@@ -5,9 +5,20 @@ import numpy
 
 
 
-def predict_the_pic(picture):
 
-   model = load_model("BrainTumorDetection.h5")
+def return_model():
+     model = load_model("BrainTumorDetection.h5")
+     return model
+
+def make_result_binary(result):
+   if result >= 0.5:
+      return 1
+   else:
+      return 0
+
+
+def predict_the_pic(picture,model):
+
    image = cv2.imread(picture)
    image = Image.fromarray(image)
    image = image.resize((128, 128))
