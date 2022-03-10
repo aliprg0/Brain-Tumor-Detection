@@ -18,7 +18,7 @@
     />
   </head>
   <body>
-    <div class="result-section" id="Predicted_Result"></div>
+    
 
     <div class="center">
       <div class="form-input">
@@ -32,8 +32,13 @@
           accept="image/*"
           onchange="showPreview(event);"
         />
+        <div class="result-section" id="Predicted_Result"></div>
       </div>
+
+     
     </div>
+   
+
     <script src="{{url_for('static', filename='app.js')}}"></script>
       
     </script>

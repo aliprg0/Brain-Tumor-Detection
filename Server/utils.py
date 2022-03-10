@@ -10,11 +10,11 @@ def return_model():
      model = load_model("BrainTumorDetection.h5")
      return model
 
-def make_result_binary(result):
+def  make_final_result(result):
    if result >= 0.5:
-      return 1
+      return "Infected"
    else:
-      return 0
+      return "OK"
 
 
 def predict_the_pic(picture,model):

@@ -12,7 +12,7 @@ body {
 .form-input {
   width: 350px;
   padding: 20px;
-  background: #fff;
+  background-color: yellowgreen;
   box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
     3px 3px 7px rgba(94, 104, 121, 0.377);
 }
@@ -42,4 +42,13 @@ body {
   display: none;
 
   margin-bottom: 30px;
+}
+
+.result-section {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: brown;
+    margin-top: 1.5em;
+
 }

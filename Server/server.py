@@ -20,7 +20,7 @@ def predict():
     data = request.files["myFile"]
     data.save(f"data/{data.filename}")
     result = predict_the_pic(f"data/{data.filename}",model=__model)
-    result = make_result_binary(result=result)
+    result = make_final_result(result=result)
     return jsonify({"Result" : result})
    #except:
    #    return jsonify({"Result" : "An Error Occurred"})
