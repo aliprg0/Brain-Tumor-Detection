@@ -1,11 +1,10 @@
-var loadFile = function (event) {
-  var output = document.getElementById("output");
-  output.src = URL.createObjectURL(event.target.files[0]);
-  output.onload = function () {
-    URL.revokeObjectURL(output.src); // free memory
-  };
-};
-const handleImageUpload = (event) => {
+function showPreview(event) {
+  if (event.target.files.length > 0) {
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("file-ip-1-preview");
+    preview.src = src;
+    preview.style.display = "block";
+  }
   const files = event.target.files;
   const formData = new FormData();
   formData.append("myFile", files[0]);
@@ -24,9 +23,3 @@ const handleImageUpload = (event) => {
       console.error(error);
     });
 };
-
-document
-  .querySelector("#fileUpload")
-  .addEventListener("change", (event) => {
-    handleImageUpload(event);
-  });
