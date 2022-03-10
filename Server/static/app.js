@@ -15,11 +15,10 @@ function showPreview(event) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       var pricesection = document.getElementById("Predicted_Result");
       pricesection.innerText = "Prediction : " + data["Result"];
     })
     .catch((error) => {
       console.error(error);
     });
-};
+}
