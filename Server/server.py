@@ -18,8 +18,8 @@ def home():
 def predict():     
    try:   
     data = request.files["myFile"]
-    data.save(data.filename)
-    result = predict_the_pic(data.filename,model=__model)
+    data.save(f"data/{data.filename}")
+    result = predict_the_pic(f"data/{data.filename}",model=__model)
     result = make_result_binary(result=result)
     return jsonify({"Result" : result})
    except:
