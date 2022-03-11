@@ -8,3 +8,4 @@ keras
 numpy
 opencv-python
 pillow
+tensorflow
