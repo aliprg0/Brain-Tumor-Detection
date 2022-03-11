@@ -9,7 +9,7 @@ function showPreview(event) {
   const formData = new FormData();
   formData.append("myFile", files[0]);
 
-  fetch("http://192.168.1.107:5000/predict", {
+  fetch("/predict", {
     method: "POST",
     body: formData,
   })
