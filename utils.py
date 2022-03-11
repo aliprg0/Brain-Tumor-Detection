@@ -1,10 +1,7 @@
-from keras.models import load_model
 import cv2
 from PIL import Image
 import numpy
-
-
-
+from tensorflow.keras.models import load_model
 
 def return_model():
      model = load_model("BrainTumorDetection.h5")
@@ -15,7 +12,6 @@ def  make_final_result(result):
       return "Infected"
    else:
       return "OK"
-
 
 def predict_the_pic(picture,model):
 
