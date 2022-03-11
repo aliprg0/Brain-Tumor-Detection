@@ -1,21 +1,17 @@
 from flask import Flask, request, render_template, jsonify
-from flask_cors import CORS
-
 from utils import *
 
 
-app = Flask(__name__)
-CORS(app)
-
+flask_app = Flask(__name__)
 __model = None
 
 
-@app.route("/")
+@flask_app.route("/")
 def home():
     return render_template("index.html")
 
 
-@app.route("/predict", methods=['POST'])
+@flask_app.route("/predict", methods=['POST'])
 def predict():
    try:
     data = request.files["myFile"]
@@ -31,4 +27,4 @@ if __name__ == "__main__":
 
     __model = return_model()
 
-    app.run(host='0.0.0.0', port=5000)
+    flask_app.run(host='0.0.0.0', port=5000)
