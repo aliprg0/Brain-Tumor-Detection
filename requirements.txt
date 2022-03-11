@@ -1,7 +1,5 @@
 Flask
 flask_cors
-pandas
-keras
 numpy
 opencv-python
 pillow
