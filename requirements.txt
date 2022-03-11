@@ -1,9 +1,6 @@
-gunicorn
 Flask
 flask_cors
-joblib
 pandas
-scikit-learn
 keras
 numpy
 opencv-python
