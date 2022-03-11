@@ -1,7 +1,7 @@
 import cv2
 from PIL import Image
 import numpy
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 
 def return_model():
      model = load_model("BrainTumorDetection.h5")

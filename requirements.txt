@@ -3,4 +3,4 @@ flask_cors
 numpy
 opencv-python
 pillow
-tensorflow
+keras
