@@ -1,0 +1,10 @@
+gunicorn==20.1.0
+Flask
+flask_cors
+joblib
+pandas
+scikit-learn
+keras
+numpy
+opencv-python
+pillow
