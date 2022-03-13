@@ -18,9 +18,10 @@ def predict():
      
      data = request.files["myFile"]
      num=num + 1
-     data.save(f"data/{data.filename}")
+     address = f"data/{data.filename}"
+     data.save(address)
      num=num + 1
-     result = predict_the_pic(f"data/{data.filename}", model=__model)
+     result = predict_the_pic(address, model=__model)
      num=num + 1
      result = make_final_result(result=result)
      num=num + 1
