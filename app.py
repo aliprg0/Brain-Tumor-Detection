@@ -69,7 +69,7 @@ def handle_contact():
     email = request.args.get("email")
     message = request.args.get("message")
     
-    conn = sqlite3.connect('requests.db')
+    conn = sqlite3.connect('/app/requests.db')
     cur = conn.cursor()
     cur.execute("""CREATE TABLE IF NOT EXISTS requests(
    email TEXT PRIMARY KEY,
