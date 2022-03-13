@@ -1,3 +1,4 @@
+from http.client import OK
 from flask import Flask, request, render_template, jsonify
 from flask_cors import CORS
 import cv2
@@ -10,7 +11,7 @@ import sqlite3
 app = Flask(__name__)
 CORS(app)
 
-__model = load_model("BrainTumorDetection.h5")
+__model = load_model("/app/BrainTumorDetection.h5")
 
 def  make_final_result(result):
    if result >= 0.5:
@@ -68,6 +69,23 @@ def handle_contact():
     email = request.args.get("email")
     message = request.args.get("message")
     
+    conn = sqlite3.connect('requests.db')
+    cur = conn.cursor()
+    cur.execute("""CREATE TABLE IF NOT EXISTS requests(
+   email TEXT PRIMARY KEY,
+   name TEXT,
+   message TEXT);""")
+    conn.commit()
+
+    requ = (email, name, message)
+
+    cur.execute("INSERT INTO requests VALUES(?, ?, ?);", requ)
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    return "<p>Done! Thanks.If There Is A Problem, We'll Contact You. </p>", 200
+
 
     
 if __name__ == "__main__":
