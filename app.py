@@ -36,7 +36,7 @@ def home():
 @app.route("/predict", methods=['POST'])
 def predict():
 
-  #  try:
+    try:
 
         data = request.files["myFile"]
 
@@ -48,8 +48,8 @@ def predict():
         result = make_final_result(result=result)
 
         return jsonify({"Result": f"{result}"})
-  #  except:
-  #      return jsonify({"Result": "An Error Occurred"})
+    except:
+        return jsonify({"Result": "An Error Occurred"})
 
 
 if __name__ == "__main__":
