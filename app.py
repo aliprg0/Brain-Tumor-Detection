@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template, jsonify
-from utils import *
 from flask_cors import CORS
 import cv2
 from PIL import Image
@@ -9,7 +8,7 @@ from keras.models import load_model
 app = Flask(__name__)
 CORS(app)
 
-__model = None
+__model = load_model("/app/BrainTumorDetection.h5")
 
 def  make_final_result(result):
    if result >= 0.5:
@@ -37,22 +36,21 @@ def home():
 @app.route("/predict", methods=['POST'])
 def predict():
 
-    try:
+  #  try:
 
         data = request.files["myFile"]
 
         address = data.filename
         data.save(f"/app/data/{address}")
 
-        result = predict_the_pic(f"/app/{data.filename}")
+        result = predict_the_pic(f"/app/data/{data.filename}")
 
         result = make_final_result(result=result)
 
         return jsonify({"Result": f"{result}"})
-    except:
-        return jsonify({"Result": "An Error Occurred"})
+  #  except:
+  #      return jsonify({"Result": "An Error Occurred"})
 
 
 if __name__ == "__main__":
-    __model = load_model("/app/BrainTumorDetection.h5")
     app.run()
