@@ -1,5 +1,5 @@
 gunicorn
-Flask
+Flask==2.0.3
 numpy
 opencv-python
 pillow

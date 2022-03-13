@@ -8,7 +8,7 @@ function showPreview(event) {
   const files = event.target.files;
   const formData = new FormData();
   formData.append("myFile", files[0]);
-
+  console.log(formData)
   fetch("/predict", {
     method: "POST",
     body: formData,

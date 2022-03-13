@@ -12,14 +12,19 @@ def home():
 
 @app.route("/predict", methods=['POST'])
 def predict():
+   num = 0
    try:
      data = request.files["myFile"]
-     data.save(f"data/{data.filename}")
-     result = predict_the_pic(f"data/{data.filename}", model=__model)
+     num=num + 1
+     data.save(f"\data/{data.filename}")
+     num=num + 1
+     result = predict_the_pic(f"\data/{data.filename}", model=__model)
+     num=num + 1
      result = make_final_result(result=result)
+     num=num + 1
      return jsonify({"Result": result})
    except:
-      return jsonify({"Result" : "An Error Occurred"})
+      return jsonify({"Result" : f"An Error Occurred.\n Code : {num}"})
 
 
 if __name__ == "__main__":
