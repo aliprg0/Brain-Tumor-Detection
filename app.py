@@ -51,6 +51,22 @@ def predict():
     except:
         return jsonify({"Result": "An Error Occurred"})
 
+@app.route("/info/")
+def return_info():
+   return render_template("info.html")
 
+@app.route("/contact/")
+def return_contact_us_page():
+    return render_template("contact_us.html")
+
+
+@app.route("/add_request")
+def handle_contact():
+    name = request.args.get("name")
+    email = request.args.get("email")
+    message = request.args.get("message")
+    print(f"{name} {email} {message}")
+
+    
 if __name__ == "__main__":
     app.run()
