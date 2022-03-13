@@ -4,11 +4,13 @@ import cv2
 from PIL import Image
 import numpy
 from keras.models import load_model
+import sqlite3
+
 
 app = Flask(__name__)
 CORS(app)
 
-__model = load_model("/app/BrainTumorDetection.h5")
+__model = load_model("BrainTumorDetection.h5")
 
 def  make_final_result(result):
    if result >= 0.5:
@@ -65,7 +67,7 @@ def handle_contact():
     name = request.args.get("name")
     email = request.args.get("email")
     message = request.args.get("message")
-    print(f"{name} {email} {message}")
+    
 
     
 if __name__ == "__main__":
