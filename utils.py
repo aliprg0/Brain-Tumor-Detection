@@ -3,9 +3,6 @@ from PIL import Image
 import numpy
 from keras.models import load_model
 
-def return_model():
-     model = load_model("BrainTumorDetection.h5")
-     return model
 
 def  make_final_result(result):
    if result >= 0.5:
@@ -13,8 +10,8 @@ def  make_final_result(result):
    else:
       return "OK"
 
-def predict_the_pic(picture,model):
-
+def predict_the_pic(picture):
+   model = load_model("/app/BrainTumorDetection.h5")
    image = cv2.imread(picture)
    image = Image.fromarray(image)
    image = image.resize((128, 128))
