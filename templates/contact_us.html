@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact_page.css') }}">
+    <script src="{{ url_for('static', filename='form_checker.js') }}"></script>
+</head>
+<body>
+
+    <ul class="topnav">
+        <li><a class="" href="#home">Home</a></li>
+        <li><a class="active" href="#contact">Contact</a></li>
+        <li><a class="right" href="#contact">About</a></li>
+
+      </ul>
+
+    <h1>Contact form</h1>
+    <form name="myForm" action="/file.php" onsubmit="validateForm()" method="post">
+       <table class="form-style">
+          <tr>
+             <td>
+                <label>
+                   Your name <span class="required">*</span>
+                </label>
+             </td>
+             <td>
+                <input type="text" name="name" class="long"/>
+                <span class="error" id="errorname"></span>
+             </td>
+          </tr>
+          <tr>
+             <td>
+                <label>
+                  Your email address <span class="required">*</span>
+                </label>
+             </td>
+             <td>
+                <input type="email" name="email" class="long"/>
+                <span class="error" id="erroremail"></span>
+             </td>
+          </tr>
+          <tr>
+             <td>
+                <label>
+                   Message <span class="required">*</span>
+                </label>
+             </td>
+             <td>
+                <textarea name="message" class="long field-textarea"></textarea>
+                <span class="error" id="errormsg"></span>
+             </td>
+          </tr>
+          <tr>
+             <td></td>
+             <td>
+                <input type="submit" value="Send">      
+                <input type="reset" value="Reset"> 
+             </td>
+          </tr>
+       </table>
+    </form>
+ </body>
+</html>
+</html>
