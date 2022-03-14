@@ -49,3 +49,8 @@ function validateForm() {
 
   return true;
 }
+
+document.getElementById("submit").addEventListener("click", myFunction);  
+       function myFunction() {  
+         window.location.href="/submit/";  
+       }
