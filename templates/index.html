@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Design by foolishdeveloper.com -->
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Brain Tumor Detection</title>
@@ -15,7 +13,6 @@
   <link
       rel="shortcut icon"
       href="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/66/000000/external-neural-network-networking-smashingstocks-flat-smashing-stocks.png"
-      
     />
   </head>
   <body>
@@ -23,11 +20,9 @@
       <li><a class="active" href="">Home</a></li>
       <li><a href="/contact/">Contact</a></li>
       <li><a class="right" href="/info/">About</a></li>
-
     </ul>
- 
-
-    <h3 class="text">If You Don't Have Any Data To Test On, Get Some From Here: https://drive.google.com/drive/folders/1C_68ovwjlQ2rPdW_TwaUtPFPBauWKFvT?usp=sharing</h3>
+    <h3 
+    class="text">If You Don't Have Any Data To Test On, Get Some From Here: https://drive.google.com/drive/folders/1C_68ovwjlQ2rPdW_TwaUtPFPBauWKFvT?usp=sharing</h3>
   <div class="center">
       <div class="form-input">
         <div class="preview">
@@ -35,20 +30,15 @@
         </div>
         <label for="file-ip-1">Upload Image</label>
         <input
-          type="file"
+                   type="file"
           id="file-ip-1"
-          accept="image/*"
+                  accept="image/*"
           onchange="showPreview(event);"
         />
         <div class="result-section" id="Predicted_Result"></div>
       </div>
-
-     
     </div>
-   
-
     <script src="{{url_for('static', filename='app.js')}}"></script>
-      
     </script>
   </body>
 </html>

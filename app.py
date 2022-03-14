@@ -12,22 +12,23 @@ CORS(app)
 
 __model = load_model("/app/BrainTumorDetection.h5")
 
-def  make_final_result(result):
-   if result >= 0.5:
-      return "Infected"
-   else:
-      return "OK"
+
+def make_final_result(result):
+    if result >= 0.5:
+        return "Infected"
+    else:
+        return "OK"
+
 
 def predict_the_pic(picture):
-   
-   image = cv2.imread(picture)
-   image = Image.fromarray(image)
-   image = image.resize((128, 128))
-   img = numpy.array(image)
-   inp_img = numpy.expand_dims(img, axis=0)
-   rresult = __model.predict(inp_img)
-   return rresult
 
+    image = cv2.imread(picture)
+    image = Image.fromarray(image)
+    image = image.resize((128, 128))
+    img = numpy.array(image)
+    inp_img = numpy.expand_dims(img, axis=0)
+    rresult = __model.predict(inp_img)
+    return rresult
 
 
 @app.route("/")
@@ -53,9 +54,11 @@ def predict():
     except:
         return jsonify({"Result": "An Error Occurred"})
 
+
 @app.route("/info/")
 def return_info():
-   return render_template("info.html")
+    return render_template("info.html")
+
 
 @app.route("/contact/")
 def return_contact_us_page():
@@ -67,7 +70,7 @@ def handle_contact():
     name = request.args.get("name")
     email = request.args.get("email")
     message = request.args.get("message")
-    
+
     conn = sqlite3.connect('/app/requests.db')
     cur = conn.cursor()
     cur.execute("""CREATE TABLE IF NOT EXISTS requests(
@@ -86,6 +89,5 @@ def handle_contact():
     return "<p>Done! Thanks.If There Is A Problem, We'll Contact You. </p>", 200
 
 
-    
 if __name__ == "__main__":
     app.run()

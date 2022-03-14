@@ -41,10 +41,9 @@ ul.topnav li.right {
   }
 }
 
-
-.text { 
-    padding:0 16px;
-    text-align: center;
-    font-size: bold;
-    font-size: 3em;
+.text {
+  padding: 0 16px;
+  text-align: center;
+  font-size: bold;
+  font-size: 3em;
 }
