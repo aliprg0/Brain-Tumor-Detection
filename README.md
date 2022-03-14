@@ -6,3 +6,5 @@ Be careful1! If you're using the project for an linux server, use "chabokan_depl
 
 The main branch is such a simple example of the site. I was going to deploy the site to hereku but some stuff happend and it didn't work out(probably for the limited storage).
 But "chabokan_deploy" is fully working in my server and feel free to use it for yourself.
+
+The Dataset I Used For My Project: https://www.kaggle.com/ahmedhamada0/brain-tumor-detection
