@@ -7,19 +7,14 @@ Original file is located at
     https://colab.research.google.com/drive/1sA1zwZcrg0vn0F27zItZEW6EKGuq66tP
 """
 
-
-
 from google.colab import drive
 drive.mount('/content/drive')
 
 import os
 
 yes_files = os.listdir("/content/drive/MyDrive/DDB/New folder (2)/yes")
-print(yes_files)
 
 no_files = os.listdir("/content/drive/MyDrive/DDB/New folder (2)/no")
-
-print(no_files)
 
 from PIL import Image
 import cv2
@@ -27,19 +22,14 @@ import numpy as np
 
 data = []
 label = []
-number = 0
 
 for i, image_name in enumerate(no_files):
   if image_name.split(".")[1] == "jpg":
     image = cv2.imread("/content/drive/MyDrive/DDB/New folder (2)/no"+"/"+image_name)
     image = Image.fromarray(image,"RGB")
-    image = image.resize((64,64))
+    image = image.resize((128,128))
     data.append(np.array(image))
     label.append(0)
-    print(number)
-    number = number + 1
-
-number = 0
 
 for i, image_name in enumerate(yes_files):
   if image_name.split(".")[1] == "jpg":
@@ -48,26 +38,21 @@ for i, image_name in enumerate(yes_files):
     image = image.resize((128,128))
     data.append(np.array(image))
     label.append(1)
-    print(number)
-    number = number + 1
-
-print(len(data))
-
-print(len(label))
 
 from sklearn.model_selection import train_test_split
+import tensorflow as tf
+x_train , x_test , y_train , y_test = train_test_split(data,label,test_size=0.2,random_state=0)
 
-x_train , x_test , y_train , y_test = train_test_split(data,label,test_size=0.1,random_state=0)
-
+print(f"********** {len(x_train)} {len(x_test)}")
 import keras
 
 #import tensorflow as tf
 #from keras.utils import normalize
 
-!pip install --upgrade pip
+#!pip install --upgrade pip
 
-!pip install keras
-!pip install tensorflow
+#!pip install keras
+#!pip install tensorflow
 
 from tensorflow import keras
 
@@ -81,27 +66,19 @@ from keras.layers import Conv2D,MaxPooling2D,Activation,Dropout,Flatten,Dense
 model = Sequential()
 
 model = Sequential()
-model.add(Conv2D(64, (3, 3), input_shape=(128, 128, 3)))
+model.add(Conv2D(32, (4, 4), input_shape=(128, 128, 3)))
 model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(MaxPooling2D(pool_size=(3, 3)))
 
-model.add(Conv2D(64, (3, 3)))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-
-model.add(Conv2D(64, (3, 3)))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
- 
 model.add(Flatten())
-model.add(Dense(64))
+model.add(Dense(32))
 model.add(Activation('relu'))
 model.add(Dropout(0.5))
 model.add(Dense(1))
 model.add(Activation('sigmoid'))
 
 model.compile(loss='binary_crossentropy',
-              optimizer='rmsprop',
+              optimizer='adam',
               metrics=['accuracy'])
 
 x_train = np.array(x_train)
@@ -109,6 +86,6 @@ x_test = np.array(x_test)
 y_test = np.array(y_test)
 y_train = np.array(y_train)
 
-model.fit(x_train,y_train,batch_size=32,epochs=10,validation_data=(x_test,y_test),shuffle=False,verbose=1)
+model.fit(x_train,y_train,batch_size=32,epochs=15,validation_data=(x_test,y_test),shuffle=False,verbose=1)
 
 model.save("BrainTumorDetection.h5")
