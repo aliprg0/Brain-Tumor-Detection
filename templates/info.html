@@ -5,17 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us</title>
+
+    <!--Linking the css- Linking css and js in Flask python module is different from normal so you might don't underestand it-->
     <link
       rel="stylesheet"
       type="text/css"
       href="{{ url_for('static', filename='styles/info.css') }}"
     />
+
+    <!--linking the shorcut icon from icon8.com site-->
     <link
       rel="shortcut icon"
       href="https://icons8.com/icon/0MyKkCVjelwl/information"
     />
   </head>
   <body>
+    <!--making the navigation bar-->
     <ul class="topnav">
       <li><a class="" href="/">Home</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -28,6 +33,7 @@
       <p>Creators : Mohammad Javad Fakhraee and Ali Kiani</p>
       <p>Thanks For Visiting The Site</p>
       <p>And Don't Remember To Send Your Opinion To Us Using Contact Page</p>
+      <!--you can find the full source here : s-->
       <p>
         Full Source:
         https://github.com/aliprg0/Brain-Tumor-Detection/tree/chabokan-deploy

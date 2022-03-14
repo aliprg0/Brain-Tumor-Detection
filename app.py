@@ -1,3 +1,4 @@
+# Importing resources
 from flask import Flask, request, render_template, jsonify
 from flask_cors import CORS
 import cv2
@@ -6,22 +7,26 @@ import numpy
 from keras.models import load_model
 import sqlite3
 
-
+# initializing app
 app = Flask(__name__)
 CORS(app)
 
+
+# loading AI Model
 __model = load_model("/app/BrainTumorDetection.h5")
 
 
+# this function make the result readlbe for humans after ai prediction
 def make_final_result(result):
     if result >= 0.5:
         return "Infected"
     else:
         return "OK"
 
+# open an analyze a send picture for tumor
+
 
 def predict_the_pic(picture):
-
     image = cv2.imread(picture)
     image = Image.fromarray(image)
     image = image.resize((128, 128))
@@ -30,10 +35,14 @@ def predict_the_pic(picture):
     rresult = __model.predict(inp_img)
     return rresult
 
+# home page
+
 
 @app.route("/")
 def home():
     return render_template("index.html")
+
+# api that the picture get send to for prediction
 
 
 @app.route("/predict", methods=['POST'])
@@ -54,10 +63,14 @@ def predict():
     except:
         return jsonify({"Result": "An Error Occurred"})
 
+# info page
+
 
 @app.route("/info/")
 def return_info():
     return render_template("info.html")
+
+# contact us page
 
 
 @app.route("/contact/")
@@ -65,6 +78,7 @@ def return_contact_us_page():
     return render_template("contact_us.html")
 
 
+# api for saving "contact_us_page" requests into database for reading
 @app.route("/add_request")
 def handle_contact():
     name = request.args.get("name")
@@ -89,5 +103,6 @@ def handle_contact():
     return "<p>Done! Thanks.If There Is A Problem, We'll Contact You. </p>", 200
 
 
+# runs the server
 if __name__ == "__main__":
     app.run()
