@@ -100,14 +100,9 @@ def handle_contact():
     cur.close()
     conn.close()
 
-    return "<p>Done! Thanks.If There Is A Problem, We'll Contact You. </p>", 200
-
-
-@app.route("/submit/")
-def submit_page():
     return render_template("submit_request.html")
 
-    
+
 # runs the server
 if __name__ == "__main__":
     app.run()

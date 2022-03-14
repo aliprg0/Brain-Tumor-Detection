@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <!--style for confirmation page-->
     <style>
       body {
         align-items: center;
@@ -24,7 +27,7 @@
       }
 
       .button:hover {
-        background-color: #4caf50; /* Green */
+        background-color: #4caf50;
         color: white;
         box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
           0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -33,10 +36,14 @@
     <title>Submit Page</title>
   </head>
   <body>
+    
+
     <h2>Form Successfully Submitted</h2>
     <button id="myButton" class="button">Back To Home</button>
 
     <script>
+
+      //clicking the button will redirect to the home page
       document.getElementById("myButton").addEventListener("click", myFunction);
       function myFunction() {
         window.location.href = "/";
