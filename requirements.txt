@@ -6,3 +6,4 @@ pillow
 keras
 opencv-python-headless
 tensorflow
+Flask-Cors
