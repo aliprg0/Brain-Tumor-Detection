@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Design by foolishdeveloper.com -->
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Brain Tumor Detection</title>
+
+    <!--Linking the css- Linking css and js in Flask python module is different from normal so you might don't underestand it-->
     <link
     rel="stylesheet"
     type="text/css"
-    href="{{ url_for('static', filename='styles/main.css') }}"
-  />
+    href="{{ url_for('static', filename='styles/main.css') }}"/>
+
+  <!--linking the shorcut icon from icon8.com site-->
   <link
       rel="shortcut icon"
-      href="{{ url_for('static', filename='favicon.png') }}"
-    />
+      href="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/66/000000/external-neural-network-networking-smashingstocks-flat-smashing-stocks.png"/>
   </head>
   <body>
-    
 
-  <div class="center">
+    <!--making the navigation bar-->
+    <ul class="topnav">
+      <li><a class="active" href="">Home</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a class="right" href="/info/">About</a></li>
+    </ul>
+    <!--you can donwload and use these pictures for making sure the AI is working-->
+    <h3 class="text">If You Don't Have Any Data To Test On, Get Some From Here: https://drive.google.com/drive/folders/1C_68ovwjlQ2rPdW_TwaUtPFPBauWKFvT?usp=sharing</h3>
+  
+    <!--the form that actually you upload pictures and see a preview of picture in it-->
+    <div class="center">
       <div class="form-input">
         <div class="preview">
           <img id="file-ip-1-preview" />
         </div>
         <label for="file-ip-1">Upload Image</label>
         <input
-          type="file"
+                   type="file"
           id="file-ip-1"
-          accept="image/*"
+                  accept="image/*"
           onchange="showPreview(event);"
         />
+
+        <!--This is the part actually you see the result after requesting to api and getting the result-->
         <div class="result-section" id="Predicted_Result"></div>
       </div>
-
-     
     </div>
-   
 
+    <!--linking javascript in flask is also different from normal- this js file send the picture to the server-->
     <script src="{{url_for('static', filename='app.js')}}"></script>
-      
     </script>
   </body>
 </html>

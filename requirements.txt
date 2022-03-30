@@ -1,8 +1,9 @@
-Flask
-flask_cors
-pandas
-keras
+gunicorn
+Flask==2.0.3
 numpy
 opencv-python
 pillow
+keras
+opencv-python-headless
 tensorflow
+Flask-Cors
