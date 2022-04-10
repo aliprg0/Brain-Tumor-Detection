@@ -19,9 +19,9 @@ __model = load_model("/app/BrainTumorDetection.h5")
 # this function make the result readlbe for humans after ai prediction
 def make_final_result(result):
     if result >= 0.5:
-        return "Infected"
+        return "مبتلا"
     else:
-        return "OK"
+        return "سالم"
 
 # open an analyze a send picture for tumor
 
