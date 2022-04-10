@@ -4,7 +4,7 @@ body {
   background: #1283da;
 }
 .center {
-  height: 100%;
+  height: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,9 +15,18 @@ body {
   background-color: yellowgreen;
   box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
     3px 3px 7px rgba(94, 104, 121, 0.377);
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+
+  margin-left: 20em;
 }
 .form-input input {
   display: none;
+
 }
 .form-input label {
   display: block;
@@ -98,4 +107,10 @@ ul.topnav li.right {
 .text {
   text-align: center;
   font-size: 1em;
+  padding: 5px;
+}
+
+.mimg {
+  margin-top: 8em;
+  margin-left: 10%;
 }
