@@ -25,8 +25,6 @@ def make_final_result(result):
         return "سالم"
 
 # open an analyze a send picture for tumor
-
-
 def predict_the_pic(picture):
     image = cv2.imread(picture)
     image = Image.fromarray(image)
@@ -37,18 +35,13 @@ def predict_the_pic(picture):
     return rresult
 
 # home page
-
-
 @app.route("/")
 def home():
     return render_template("index.html")
 
 # api that the picture get send to for prediction
-
-
 @app.route("/predict", methods=['POST'])
 def predict():
-
     try:
 
         data = request.files["myFile"]
@@ -63,9 +56,6 @@ def predict():
         return jsonify({"Result": f"{result}"})
     except:
         return jsonify({"Result": "An Error Occurred"})
-
-# info page
-
 
 # runs the server
 if __name__ == "__main__":

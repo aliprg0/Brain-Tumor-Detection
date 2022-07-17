@@ -10,6 +10,10 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/66/000000/external-neural-network-networking-smashingstocks-flat-smashing-stocks.png"
+    />
   </head>
   <title>BTD</title>
   <body>
@@ -21,11 +25,9 @@
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navmenu"
-        >
+          data-bs-target="#navmenu">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
@@ -42,7 +44,7 @@
       </div>
     </nav>
     <!-- End of Navigation -->
-    <!-- ShowCase-->
+    <!-- ShowCase  -->
     <section class="bg-dark text-light p-5 text-center text-sm-start">
       <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
@@ -53,24 +55,23 @@
             </h1>
             <p class="lead">
               Created in 2022<br />
+              Site Frontend Has Been Updated After<br />
+              Beeing Aproved By The Referees<br />
               For Scientific Purposes<br />
               Predicting Using Machine Learning<br />
               And Image Processing<br />
               <br /><br /><br /><br />
               Created By Ali Kiani And <br />
-
               Mohammad Javad Fakhraee<br />
             </p>
           </div>
           <img
-            src="/static/secondpic.svg"
+            src="/static/brain.svg"
             alt=""
-            class="img-fluid rounded-circle w-50 d-none d-sm-block"
-          />
+            class="img-fluid rounded-circle w-50 d-none d-sm-block"/>
         </div>
       </div>
     </section>
-
     <!-- End of ShowCase -->
     <!--Links-->
     <section class="bg-light text-dark p-5">
@@ -81,14 +82,13 @@
               <div class="card-body">
                 <h5 class="card-title">
                   <i class="fas fa-user-plus"></i>
-                  <span class="text-warning">گیت هاب</span>
+                  <span class="text-warning">Github</span>
                 </h5>
-                <p class="card-text">سورس کامل پروژه همراه با لاگ هیستوری</p>
+                <p class="card-text">Full Source With Logs</p>
                 <a
                   href="https://github.com/aliprg0/Brain-Tumor-Detection"
                   class="btn btn-primary"
-                  >Go to Github</a
-                >
+                  >Go to Github</a>
               </div>
             </div>
           </div>
@@ -97,9 +97,9 @@
               <div class="card-body">
                 <h5 class="card-title">
                   <i class="fas fa-sign-in-alt"></i>
-                  <span class="text-warning">دیتاست</span>
+                  <span class="text-warning">Dataset</span>
                 </h5>
-                <p class="card-text">دیتاست استفاده شده در اموزش هوش مصنوعی</p>
+                <p class="card-text">Used Dataset For The Project</p>
                 <a href="#" class="btn btn-primary">Go to Google Drive</a>
               </div>
             </div>
@@ -109,12 +109,12 @@
               <div class="card-body">
                 <h5 class="card-title">
                   <i class="fas fa-sign-in-alt"></i>
-                  <span class="text-warning">بقیه پروژه ها</span>
+                  <span class="text-warning">Other Projects</span>
                 </h5>
-                <p class="card-text">سورس پروژه های دیگر برای داوران</p>
+                <p class="card-text">For 
+                  Referees To Check Out Our Other Projects</p>
                 <a href="https://github.com/aliprg0" class="btn btn-primary"
-                  >Go to Github</a
-                >
+                  >Go to Github Page</a>
               </div>
             </div>
           </div>
@@ -122,9 +122,7 @@
       </div>
     </section>
     <!--End of Links-->
-    <!-- Predicting section 
-    Here the person Upload an image using an button on the left side 
-    Then a request to the backend is sent and we also preview the picutre of the right side of the section-->
+    <!-- Prediction Section-->
     <section class="bg-light text-dark p-5">
       <div class="container">
         <div class="row">
@@ -133,18 +131,17 @@
               <div class="card-body">
                 <h5 class="card-title">
                   <i class="fas fa-upload"></i>
-                  <span class="text-warning">بارگذاری تصویر</span>
+                  <span class="text-warning">Uploading</span>
                 </h5>
                 <p class="card-text">
-                  با استفاده از این دکمه تصویر خود را بارگذاری کنید
+                Click To Upload Your Image<br/>
                 </p>
                 <input
                   type="file"
                   id="file-ip-1"
                   accept="image/*"
                   onchange="showPreview(event);"
-                  class="lols"
-                />
+                  class="lols"/>
                 <div class="result-section" id="Predicted_Result"></div>
               </div>
             </div>
@@ -154,24 +151,24 @@
               <div class="card-body">
                 <h5 class="card-title">
                   <i class="fas fa-eye"></i>
-                  <span class="text-warning">پیش نمایش تصویر</span>
+                  <span class="text-warning">Preview</span>
                 </h5>
                 <p class="card-text">
-                  تصویر بارگذاری شده در این قسمت نمایش داده می شود
-                </p>
+                  Uploaded Picture Will Be Previewed Here<br />
+                 </p>
                 <img
                   src=""
                   id="file-ip-1-preview"
                   alt=""
-                  class="img-fluid w-50"
-                />
+                  class="img-fluid w-50"/>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Contact & Map -->
+    <!-- End of Prediction Section-->
+    <!-- Contact -->
     <section class="p-5">
       <div class="container">
         <div class="row g-4">
@@ -193,6 +190,7 @@
         </div>
       </div>
     </section>
+    <!-- End of Contact -->
     <!-- Footer -->
     <footer class="p-5 bg-dark text-white text-center position-relative">
       <div class="container">
