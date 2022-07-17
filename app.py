@@ -14,6 +14,7 @@ CORS(app)
 
 # loading AI Model
 __model = load_model("/app/BrainTumorDetection.h5")
+#__model = load_model("BrainTumorDetection.h5")
 
 
 # this function make the result readlbe for humans after ai prediction
@@ -64,43 +65,6 @@ def predict():
         return jsonify({"Result": "An Error Occurred"})
 
 # info page
-
-
-@app.route("/info/")
-def return_info():
-    return render_template("info.html")
-
-# contact us page
-
-
-@app.route("/contact/")
-def return_contact_us_page():
-    return render_template("contact_us.html")
-
-
-# api for saving "contact_us_page" requests into database for reading
-@app.route("/add_request")
-def handle_contact():
-    name = request.args.get("name")
-    email = request.args.get("email")
-    message = request.args.get("message")
-
-    conn = sqlite3.connect('/app/requests.db')
-    cur = conn.cursor()
-    cur.execute("""CREATE TABLE IF NOT EXISTS requests(
-   email TEXT PRIMARY KEY,
-   name TEXT,
-   message TEXT);""")
-    conn.commit()
-
-    requ = (email, name, message)
-
-    cur.execute("INSERT INTO requests VALUES(?, ?, ?);", requ)
-    conn.commit()
-    cur.close()
-    conn.close()
-
-    return render_template("submit_request.html")
 
 
 # runs the server
