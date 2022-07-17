@@ -21,7 +21,7 @@ function showPreview(event) {
     .then((response) => response.json())
     .then((data) => {
       var pricesection = document.getElementById("Predicted_Result");
-      pricesection.innerText = "نتیجه : " + data["Result"];
+      pricesection.innerText = "Result: " + data["Result"];
     })
 
     //if there's an error, you'll see it here
